@@ -1,0 +1,113 @@
+---
+title: "Langebaan2018Markdown"
+author: "Shani Fourie"
+date: "12/04/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+#### Introduction
+
+The aim of the study was to assess how disturbance (bait collecting and trampling) influence trophic niches of sandprawns.The study was done in Langebaan lagoon in Zone A. Zone A was further divided into four sections, A1, A2, B and C. To access the raw data used in this document click [here.](https://github.com/ShaniFourie/TidyData/blob/main/ShaniRaw.xlsx)
+
+
+
+```{r echo=FALSE}
+library(readxl)
+library(tidyverse)
+
+```
+
+Within the 4 subsections of Zone A five variables were measured for each of the four materials (Sandprawn, plants, phytoplankton and MPB, and the sediment). These variables are as follows: delta carbon 13, delta nitrogen 15, the % nitrogen present, the % carbon present, and the carbon to nitrogen ratio.
+
+A table representing the collected data for the Sandprawn
+
+
+Reading in the different sheets from excel
+```{r}
+Sandprawn <- read_excel("ShaniRaw.xlsx",  sheet = "Sandprawn")
+
+
+plants <- read_excel("ShaniRaw.xlsx", sheet = "Plants")
+
+
+phyto <- read_excel("ShaniRaw.xlsx", sheet = "PHY and MBO")
+
+
+sediment <- read_excel("ShaniRaw.xlsx", sheet = "Sediment")
+
+```
+
+Displaying the data in tabular format for the four different materials:
+```{r}
+Sandprawn
+plants
+phyto
+sediment
+```
+
+Selecting specific columns from the Sandprawn table
+
+```{r echo=FALSE}
+SandprawnSelected=read_xlsx("ShaniRaw.xlsx", sheet= "Sandprawn") %>% 
+  select(Material,Site,d13C,d15N,`N%`,`C%`,`C:N`)
+
+SandprawnSelected
+
+```
+
+
+The characters are set as factors and unclassed
+```{r}
+Sandprawn$Sex = as.factor(Sandprawn$Sex)
+unclass(Sandprawn$Sex)
+
+Sandprawn$Site = as.factor(Sandprawn$Site)
+unclass(Sandprawn$Site)
+
+plants$Site = as.factor(plants$Site)
+unclass(plants$Site)
+
+phyto$Site = as.factor(phyto$Site)
+unclass(phyto$Site)
+
+sediment$Zone = as.factor(sediment$Zone)
+unclass(sediment$Zone)
+```
+
+
+
+The data is then tidied to pivot longer
+
+```{r}
+read_xlsx("ShaniRaw.xlsx", sheet= "Sandprawn") %>% 
+  select(Material,Site,d13C,d15N,`N%`,`C%`,`C:N`) %>%
+  pivot_longer(cols = c("d13C", "d15N", "N%", "C%","C:N"),
+               names_to = "variable", values_to = "value") 
+```
+
+
+```{r echo=FALSE, message=FALSE}
+ library(ggplot2)
+```
+
+```{r}
+
+```
+
+## Plots
+
+The delta 13 carbon values for Sandprawn, plants, phytoplankton and MPB, and sediment, collected within the four sites:
+
+```{r }
+
+
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
