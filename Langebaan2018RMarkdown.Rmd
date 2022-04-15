@@ -43,6 +43,20 @@ sediment <- read_excel("ShaniRaw.xlsx", sheet = "Sediment")
 
 ```
 
+
+Changing sediments' "Zone" to "Site"
+```{r}
+SedimentSite=read_excel("ShaniRaw.xlsx", sheet = "Sediment")%>%
+knitr::kable(col.names = c("Material", "Site", "d13C",  "d15N",  "`N%`", "`C%`"))
+
+```
+
+```{r}
+SedimentSite
+```
+
+
+
 Displaying the data in tabular format for the four different materials:
 ```{r}
 Sandprawn
@@ -53,7 +67,7 @@ sediment
 
 Selecting specific columns from the Sandprawn table
 
-```{r echo=FALSE}
+```{r }
 SandprawnSelected=read_xlsx("ShaniRaw.xlsx", sheet= "Sandprawn") %>% 
   select(Material,Site,d13C,d15N,`N%`,`C%`,`C:N`)
 
@@ -63,7 +77,7 @@ SandprawnSelected
 
 
 The characters are set as factors and unclassed
-```{r}
+```{r echo=FALSE,message=FALSE}
 Sandprawn$Sex = as.factor(Sandprawn$Sex)
 unclass(Sandprawn$Sex)
 
@@ -82,14 +96,39 @@ unclass(sediment$Zone)
 
 
 
-The data is then tidied to pivot longer
+##**The data is then tidied to pivot longer**
+
+Sandprawn table pivot to long format:
 
 ```{r}
 read_xlsx("ShaniRaw.xlsx", sheet= "Sandprawn") %>% 
-  select(Material,Site,d13C,d15N,`N%`,`C%`,`C:N`) %>%
-  pivot_longer(cols = c("d13C", "d15N", "N%", "C%","C:N"),
+  select(Material,Site,d13C,d15N,`N%`,`C%`) %>%
+  pivot_longer(cols = c("d13C", "d15N", "N%", "C%"),
                names_to = "variable", values_to = "value") 
 ```
+
+Sediment table pivot to long format
+```{r}
+sediment%>%
+  pivot_longer(cols = c("d13C", "d15N", "N%", "C%"),
+               names_to = "variable", values_to = "value")
+```
+
+Plant table pivot to long format:
+```{r}
+plants %>%
+  pivot_longer(cols = c("d13C", "d15N", "N%", "C%"),
+               names_to = "variable", values_to = "value") 
+```
+
+Phytoplankton table pivot to long format:
+```{r}
+phyto %>%
+  pivot_longer(cols = c("d13C", "d15N", "N%", "C%"),
+               names_to = "variable", values_to = "value") 
+```
+
+
 
 
 ```{r echo=FALSE, message=FALSE}

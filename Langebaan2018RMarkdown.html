@@ -202,6 +202,216 @@ phyto &lt;- read_excel(&quot;ShaniRaw.xlsx&quot;, sheet = &quot;PHY and MBO&quot
 
 
 sediment &lt;- read_excel(&quot;ShaniRaw.xlsx&quot;, sheet = &quot;Sediment&quot;)</code></pre>
+<p>Changing sediments’ “Zone” to “Site”</p>
+<pre class="r"><code>SedimentSite=read_excel(&quot;ShaniRaw.xlsx&quot;, sheet = &quot;Sediment&quot;)%&gt;%
+knitr::kable(col.names = c(&quot;Material&quot;, &quot;Site&quot;, &quot;d13C&quot;,  &quot;d15N&quot;,  &quot;`N%`&quot;, &quot;`C%`&quot;))</code></pre>
+<pre class="r"><code>SedimentSite</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Material</th>
+<th align="left">Site</th>
+<th align="right">d13C</th>
+<th align="right">d15N</th>
+<th align="right"><code>N%</code></th>
+<th align="right"><code>C%</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Sediment</td>
+<td align="left">A1</td>
+<td align="right">-14.6950</td>
+<td align="right">9.380000</td>
+<td align="right">0.0162587</td>
+<td align="right">0.1536486</td>
+</tr>
+<tr class="even">
+<td align="left">Sediment</td>
+<td align="left">A1</td>
+<td align="right">-13.9720</td>
+<td align="right">9.230000</td>
+<td align="right">0.0163327</td>
+<td align="right">0.1601375</td>
+</tr>
+<tr class="odd">
+<td align="left">Sediment</td>
+<td align="left">A1</td>
+<td align="right">-14.7830</td>
+<td align="right">9.230000</td>
+<td align="right">0.0171940</td>
+<td align="right">0.1639749</td>
+</tr>
+<tr class="even">
+<td align="left">Sediment</td>
+<td align="left">A1</td>
+<td align="right">-14.5030</td>
+<td align="right">9.540000</td>
+<td align="right">0.0145869</td>
+<td align="right">0.1395054</td>
+</tr>
+<tr class="odd">
+<td align="left">Sediment</td>
+<td align="left">A1</td>
+<td align="right">-12.9000</td>
+<td align="right">9.590000</td>
+<td align="right">0.0139257</td>
+<td align="right">0.1392496</td>
+</tr>
+<tr class="even">
+<td align="left">Sediment</td>
+<td align="left">A1</td>
+<td align="right">-14.1706</td>
+<td align="right">9.360000</td>
+<td align="right">0.0139108</td>
+<td align="right">0.1438508</td>
+</tr>
+<tr class="odd">
+<td align="left">Sediment</td>
+<td align="left">A2</td>
+<td align="right">-14.3660</td>
+<td align="right">10.785799</td>
+<td align="right">0.0216737</td>
+<td align="right">0.2834311</td>
+</tr>
+<tr class="even">
+<td align="left">Sediment</td>
+<td align="left">A2</td>
+<td align="right">-14.1780</td>
+<td align="right">10.605389</td>
+<td align="right">0.0225183</td>
+<td align="right">0.2865292</td>
+</tr>
+<tr class="odd">
+<td align="left">Sediment</td>
+<td align="left">A2</td>
+<td align="right">-14.3620</td>
+<td align="right">10.738748</td>
+<td align="right">0.0225287</td>
+<td align="right">0.2901840</td>
+</tr>
+<tr class="even">
+<td align="left">Sediment</td>
+<td align="left">A2</td>
+<td align="right">-13.9220</td>
+<td align="right">10.516645</td>
+<td align="right">0.0205145</td>
+<td align="right">0.2714246</td>
+</tr>
+<tr class="odd">
+<td align="left">Sediment</td>
+<td align="left">A2</td>
+<td align="right">-14.3850</td>
+<td align="right">10.481389</td>
+<td align="right">0.0275848</td>
+<td align="right">0.3612772</td>
+</tr>
+<tr class="even">
+<td align="left">Sediment</td>
+<td align="left">A2</td>
+<td align="right">-14.1740</td>
+<td align="right">10.072697</td>
+<td align="right">0.0201814</td>
+<td align="right">0.2827987</td>
+</tr>
+<tr class="odd">
+<td align="left">Sediment</td>
+<td align="left">B</td>
+<td align="right">-15.0860</td>
+<td align="right">10.284569</td>
+<td align="right">0.0000000</td>
+<td align="right">0.1256247</td>
+</tr>
+<tr class="even">
+<td align="left">Sediment</td>
+<td align="left">B</td>
+<td align="right">-14.2900</td>
+<td align="right">10.082722</td>
+<td align="right">0.0000000</td>
+<td align="right">0.1151687</td>
+</tr>
+<tr class="odd">
+<td align="left">Sediment</td>
+<td align="left">B</td>
+<td align="right">-14.8510</td>
+<td align="right">10.442492</td>
+<td align="right">0.0099878</td>
+<td align="right">0.1401161</td>
+</tr>
+<tr class="even">
+<td align="left">Sediment</td>
+<td align="left">B</td>
+<td align="right">-14.0870</td>
+<td align="right">8.955646</td>
+<td align="right">0.0000000</td>
+<td align="right">0.1434460</td>
+</tr>
+<tr class="odd">
+<td align="left">Sediment</td>
+<td align="left">B</td>
+<td align="right">-13.9240</td>
+<td align="right">10.040184</td>
+<td align="right">0.0091271</td>
+<td align="right">0.1391179</td>
+</tr>
+<tr class="even">
+<td align="left">Sediment</td>
+<td align="left">B</td>
+<td align="right">-16.4830</td>
+<td align="right">10.175363</td>
+<td align="right">0.0077964</td>
+<td align="right">0.1151288</td>
+</tr>
+<tr class="odd">
+<td align="left">Sediment</td>
+<td align="left">C</td>
+<td align="right">-15.5640</td>
+<td align="right">9.379030</td>
+<td align="right">0.0202153</td>
+<td align="right">0.2715495</td>
+</tr>
+<tr class="even">
+<td align="left">Sediment</td>
+<td align="left">C</td>
+<td align="right">-14.2310</td>
+<td align="right">9.082466</td>
+<td align="right">0.0177809</td>
+<td align="right">0.2188711</td>
+</tr>
+<tr class="odd">
+<td align="left">Sediment</td>
+<td align="left">C</td>
+<td align="right">-13.7940</td>
+<td align="right">9.221338</td>
+<td align="right">0.0202162</td>
+<td align="right">0.2405827</td>
+</tr>
+<tr class="even">
+<td align="left">Sediment</td>
+<td align="left">C</td>
+<td align="right">-14.1100</td>
+<td align="right">9.181517</td>
+<td align="right">0.0212341</td>
+<td align="right">0.2904362</td>
+</tr>
+<tr class="odd">
+<td align="left">Sediment</td>
+<td align="left">C</td>
+<td align="right">-14.6530</td>
+<td align="right">9.079440</td>
+<td align="right">0.0206627</td>
+<td align="right">0.2580335</td>
+</tr>
+<tr class="even">
+<td align="left">Sediment</td>
+<td align="left">C</td>
+<td align="right">-13.9550</td>
+<td align="right">9.122953</td>
+<td align="right">0.0217019</td>
+<td align="right">0.2728772</td>
+</tr>
+</tbody>
+</table>
 <p>Displaying the data in tabular format for the four different materials:</p>
 <pre class="r"><code>Sandprawn</code></pre>
 <pre><code>## # A tibble: 107 x 11
@@ -265,6 +475,10 @@ sediment &lt;- read_excel(&quot;ShaniRaw.xlsx&quot;, sheet = &quot;Sediment&quot
 ## 10 Sediment A2    -13.9 10.5  0.0205 0.271
 ## # ... with 14 more rows</code></pre>
 <p>Selecting specific columns from the Sandprawn table</p>
+<pre class="r"><code>SandprawnSelected=read_xlsx(&quot;ShaniRaw.xlsx&quot;, sheet= &quot;Sandprawn&quot;) %&gt;% 
+  select(Material,Site,d13C,d15N,`N%`,`C%`,`C:N`)
+
+SandprawnSelected</code></pre>
 <pre><code>## # A tibble: 107 x 7
 ##    Material  Site   d13C  d15N  `N%`  `C%` `C:N`
 ##    &lt;chr&gt;     &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -280,55 +494,100 @@ sediment &lt;- read_excel(&quot;ShaniRaw.xlsx&quot;, sheet = &quot;Sediment&quot
 ## 10 sandprawn A1    -14.2 11.3   9.98  35.9  3.59
 ## # ... with 97 more rows</code></pre>
 <p>The characters are set as factors and unclassed</p>
-<pre class="r"><code>Sandprawn$Sex = as.factor(Sandprawn$Sex)
-unclass(Sandprawn$Sex)</code></pre>
 <pre><code>##   [1] 1 3 3 3 1 4 3 3 4 1 1 4 4 4 1 4 4 4 4 3 3 1 1 1 1 1 4 1 1 1 4 3 3 3 3 1 1
 ##  [38] 4 4 3 3 1 1 4 1 4 1 4 3 4 4 4 4 1 1 4 1 1 4 4 1 4 1 1 1 1 1 1 1 3 3 3 3 4
 ##  [75] 3 4 1 4 3 2 2 4 4 1 1 4 2 3 3 3 2 4 2 1 2 2 2 4 4 4 4 4 1 4 3 1 3
 ## attr(,&quot;levels&quot;)
 ## [1] &quot;f&quot;     &quot;f ovi&quot; &quot;j&quot;     &quot;m&quot;</code></pre>
-<pre class="r"><code>Sandprawn$Site = as.factor(Sandprawn$Site)
-unclass(Sandprawn$Site)</code></pre>
 <pre><code>##   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2
 ##  [38] 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
 ##  [75] 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
 ## attr(,&quot;levels&quot;)
 ## [1] &quot;A1&quot; &quot;A2&quot; &quot;B&quot;  &quot;C&quot;</code></pre>
-<pre class="r"><code>plants$Site = as.factor(plants$Site)
-unclass(plants$Site)</code></pre>
 <pre><code>##  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
 ## [39] 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4
 ## attr(,&quot;levels&quot;)
 ## [1] &quot;A1&quot; &quot;A2&quot; &quot;B&quot;  &quot;C&quot;</code></pre>
-<pre class="r"><code>phyto$Site = as.factor(phyto$Site)
-unclass(phyto$Site)</code></pre>
 <pre><code>##  [1] 4 4 4 4 3 3 3 3 1 1 1 1 2 2 2 2 2 2 2 2 3 3 3 4 4 4 1 1 1
 ## attr(,&quot;levels&quot;)
 ## [1] &quot;A1&quot; &quot;A2&quot; &quot;B&quot;  &quot;C&quot;</code></pre>
-<pre class="r"><code>sediment$Zone = as.factor(sediment$Zone)
-unclass(sediment$Zone)</code></pre>
 <pre><code>##  [1] 1 1 1 1 1 1 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 4 4
 ## attr(,&quot;levels&quot;)
 ## [1] &quot;A1&quot; &quot;A2&quot; &quot;B&quot;  &quot;C&quot;</code></pre>
-<p>The data is then tidied to pivot longer</p>
+<p><strong>The data is then tidied to pivot longer</strong></p>
+<p>Sandprawn table pivot to long format:</p>
 <pre class="r"><code>read_xlsx(&quot;ShaniRaw.xlsx&quot;, sheet= &quot;Sandprawn&quot;) %&gt;% 
-  select(Material,Site,d13C,d15N,`N%`,`C%`,`C:N`) %&gt;%
-  pivot_longer(cols = c(&quot;d13C&quot;, &quot;d15N&quot;, &quot;N%&quot;, &quot;C%&quot;,&quot;C:N&quot;),
+  select(Material,Site,d13C,d15N,`N%`,`C%`) %&gt;%
+  pivot_longer(cols = c(&quot;d13C&quot;, &quot;d15N&quot;, &quot;N%&quot;, &quot;C%&quot;),
                names_to = &quot;variable&quot;, values_to = &quot;value&quot;) </code></pre>
-<pre><code>## # A tibble: 535 x 4
+<pre><code>## # A tibble: 428 x 4
 ##    Material  Site  variable  value
 ##    &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;
 ##  1 sandprawn A1    d13C     -16.9 
 ##  2 sandprawn A1    d15N      10.4 
 ##  3 sandprawn A1    N%         6.42
 ##  4 sandprawn A1    C%        44.5 
-##  5 sandprawn A1    C:N        6.93
-##  6 sandprawn A1    d13C     -16.3 
-##  7 sandprawn A1    d15N      10.3 
-##  8 sandprawn A1    N%         8.04
-##  9 sandprawn A1    C%        36.8 
-## 10 sandprawn A1    C:N        4.58
-## # ... with 525 more rows</code></pre>
+##  5 sandprawn A1    d13C     -16.3 
+##  6 sandprawn A1    d15N      10.3 
+##  7 sandprawn A1    N%         8.04
+##  8 sandprawn A1    C%        36.8 
+##  9 sandprawn A1    d13C     -14.2 
+## 10 sandprawn A1    d15N       9.78
+## # ... with 418 more rows</code></pre>
+<p>Sediment table pivot to long format</p>
+<pre class="r"><code>sediment%&gt;%
+  pivot_longer(cols = c(&quot;d13C&quot;, &quot;d15N&quot;, &quot;N%&quot;, &quot;C%&quot;),
+               names_to = &quot;variable&quot;, values_to = &quot;value&quot;)</code></pre>
+<pre><code>## # A tibble: 96 x 4
+##    Material Zone  variable    value
+##    &lt;chr&gt;    &lt;fct&gt; &lt;chr&gt;       &lt;dbl&gt;
+##  1 Sediment A1    d13C     -14.7   
+##  2 Sediment A1    d15N       9.38  
+##  3 Sediment A1    N%         0.0163
+##  4 Sediment A1    C%         0.154 
+##  5 Sediment A1    d13C     -14.0   
+##  6 Sediment A1    d15N       9.23  
+##  7 Sediment A1    N%         0.0163
+##  8 Sediment A1    C%         0.160 
+##  9 Sediment A1    d13C     -14.8   
+## 10 Sediment A1    d15N       9.23  
+## # ... with 86 more rows</code></pre>
+<p>Plant table pivot to long format:</p>
+<pre class="r"><code>plants %&gt;%
+  pivot_longer(cols = c(&quot;d13C&quot;, &quot;d15N&quot;, &quot;N%&quot;, &quot;C%&quot;),
+               names_to = &quot;variable&quot;, values_to = &quot;value&quot;) </code></pre>
+<pre><code>## # A tibble: 288 x 5
+##    `Material:`   Site  `C:N` variable  value
+##    &lt;chr&gt;         &lt;fct&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
+##  1 Zostera green A1     12.4 d13C     -10.5 
+##  2 Zostera green A1     12.4 d15N      11.5 
+##  3 Zostera green A1     12.4 N%         2.60
+##  4 Zostera green A1     12.4 C%        32.2 
+##  5 Zostera green A1     12.6 d13C     -10.8 
+##  6 Zostera green A1     12.6 d15N      11.4 
+##  7 Zostera green A1     12.6 N%         2.61
+##  8 Zostera green A1     12.6 C%        32.9 
+##  9 Zostera green A1     12.5 d13C     -10.5 
+## 10 Zostera green A1     12.5 d15N      11.5 
+## # ... with 278 more rows</code></pre>
+<p>Phytoplankton table pivot to long format:</p>
+<pre class="r"><code>phyto %&gt;%
+  pivot_longer(cols = c(&quot;d13C&quot;, &quot;d15N&quot;, &quot;N%&quot;, &quot;C%&quot;),
+               names_to = &quot;variable&quot;, values_to = &quot;value&quot;) </code></pre>
+<pre><code>## # A tibble: 116 x 4
+##    Material      Site  variable  value
+##    &lt;chr&gt;         &lt;fct&gt; &lt;chr&gt;     &lt;dbl&gt;
+##  1 Phytoplankton C     d13C     -14.7 
+##  2 Phytoplankton C     d15N       8.09
+##  3 Phytoplankton C     N%        24.3 
+##  4 Phytoplankton C     C%       203.  
+##  5 Phytoplankton C     d13C     -15.3 
+##  6 Phytoplankton C     d15N       8.28
+##  7 Phytoplankton C     N%        17.9 
+##  8 Phytoplankton C     C%       153.  
+##  9 Phytoplankton C     d13C     -15.7 
+## 10 Phytoplankton C     d15N       8.09
+## # ... with 106 more rows</code></pre>
 </div>
 </div>
 <div id="plots" class="section level2">
