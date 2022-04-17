@@ -25,8 +25,6 @@ library(tidyverse)
 
 Within the 4 subsections of Zone A five variables were measured for each of the four materials (Sandprawn, plants, phytoplankton and MPB, and the sediment). These variables are as follows: delta carbon 13, delta nitrogen 15, the % nitrogen present, the % carbon present, and the carbon to nitrogen ratio.
 
-A table representing the collected data for the Sandprawn
-
 
 Reading in the different sheets from excel
 ```{r}
@@ -44,18 +42,9 @@ sediment <- read_excel("ShaniRaw.xlsx", sheet = "Sediment")
 ```
 
 
-Changing sediments' "Zone" to "Site"
-```{r}
-SedimentSite=read_excel("ShaniRaw.xlsx", sheet = "Sediment")%>%
-knitr::kable(col.names = c("Material", "Site", "d13C",  "d15N",  "`N%`", "`C%`"))
-
-```
-
-```{r}
-SedimentSite
-```
 
 
+A table representing the collected data for the Sandprawn, plants, phytoplankton, and sediment
 
 Displaying the data in tabular format for the four different materials:
 ```{r}
@@ -101,43 +90,60 @@ unclass(sediment$Zone)
 Sandprawn table pivot to long format:
 
 ```{r}
-read_xlsx("ShaniRaw.xlsx", sheet= "Sandprawn") %>% 
+pivot1=read_xlsx("ShaniRaw.xlsx", sheet= "Sandprawn") %>% 
   select(Material,Site,d13C,d15N,`N%`,`C%`) %>%
   pivot_longer(cols = c("d13C", "d15N", "N%", "C%"),
                names_to = "variable", values_to = "value") 
+pivot1
 ```
 
 Sediment table pivot to long format
 ```{r}
-sediment%>%
+pivot2=read_xlsx("ShaniRaw.xlsx", sheet= "Sediment") %>%
   pivot_longer(cols = c("d13C", "d15N", "N%", "C%"),
                names_to = "variable", values_to = "value")
+pivot2
 ```
 
 Plant table pivot to long format:
 ```{r}
-plants %>%
+pivot3=read_xlsx("ShaniRaw.xlsx", sheet= "Plants") %>% 
   pivot_longer(cols = c("d13C", "d15N", "N%", "C%"),
                names_to = "variable", values_to = "value") 
+pivot3
 ```
 
 Phytoplankton table pivot to long format:
 ```{r}
-phyto %>%
+pivot4=read_xlsx("ShaniRaw.xlsx", sheet= "PHY and MBO") %>% 
   pivot_longer(cols = c("d13C", "d15N", "N%", "C%"),
                names_to = "variable", values_to = "value") 
+pivot4
 ```
 
+Changing column name "Zone" to "Site"
+```{r}
+SedimentSite=read_excel("ShaniRaw.xlsx", sheet = "Sediment")%>%
+knitr::kable(col.names = c("Material", "Site", "d13C",  "d15N",  "`N%`", "`C%`"))
+```
 
+Changing column name "Material:" to "Material"
+```{r}
+colnames(plants) <- c("Material", "Site", "d13C",  "d15N",  "`N%`", "`C%`","`C:N`")
+
+plants
+```
 
 
 ```{r echo=FALSE, message=FALSE}
  library(ggplot2)
 ```
 
+
 ```{r}
 
 ```
+
 
 ## Plots
 
@@ -145,8 +151,108 @@ The delta 13 carbon values for Sandprawn, plants, phytoplankton and MPB, and sed
 
 ```{r }
 
+ 
+p1= ggplot(SandprawnSelected) +
+    geom_boxplot(aes(y = d13C, x = Site)) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+
+```
+
+
+```{r}
+p1 + ggtitle("Sandprawn")
+```
+
+```{r }
+
+ 
+p2= ggplot(plants) +
+    geom_boxplot(aes(y = d13C, x = Site)) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+
+```
+
+
+```{r}
+p2 + ggtitle("Plants")
+```
+
+```{r}
+p3= ggplot(sediment) +
+    geom_boxplot(aes(y = d13C, x = Zone)) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+
+```
+
+
+```{r}
+p3 + ggtitle("Sediment")
+```
+
+```{r}
+p4= ggplot(phyto) +
+    geom_boxplot(aes(y = d13C, x = Site)) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+
+```
+
+
+```{r}
+p4 + ggtitle("PHY & MPB")
+
+```
+
+```{r }
+
+ 
+p1.1= ggplot(SandprawnSelected) +
+    geom_boxplot(aes(y = d15N, x = Site)) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+
+```
+
+
+```{r}
+p1.1 + ggtitle("Sandprawn")
+```
+
+```{r }
+
+ 
+p2.1= ggplot(plants) +
+    geom_boxplot(aes(y = d15N, x = Site)) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+
+```
+
+
+```{r}
+p2.1 + ggtitle("Plants")
+```
+
+```{r}
+p3.1= ggplot(sediment) +
+    geom_boxplot(aes(y = d15N, x = Zone)) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+
+```
+
+
+```{r}
+p3.1 + ggtitle("Sediment")
+```
+
+```{r}
+p4.1= ggplot(phyto) +
+    geom_boxplot(aes(y = d15N, x = Site)) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+
+```
+
+
+```{r}
+p4.1 + ggtitle("PHY & MPB")
 
 
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
